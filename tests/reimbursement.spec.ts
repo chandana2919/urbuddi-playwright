@@ -1,7 +1,7 @@
 import { test, expect } from '../fixtures/pageFixtures';
 import {
     staticReimbursementData,
-} from '../utils/Reimbursement.utils';
+} from '../utils/reimbursement.utils';
 import { allure } from "allure-playwright";
 
 test.describe('Reimbursement - Apply Extra Work Tests', () => {
@@ -34,7 +34,6 @@ test.describe('Reimbursement - Apply Extra Work Tests', () => {
         
         await reimbursementPage.page.waitForTimeout(2000);
         
-        // Check if extra work already exists - look for error message
         const errorLocator = reimbursementPage.page.getByText('Extra work already exists for the same date');
         const hasError = await errorLocator.count() > 0;
         
