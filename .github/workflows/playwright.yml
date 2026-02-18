@@ -25,9 +25,18 @@ jobs:
         USER_EMAIL: ${{ secrets.USER_EMAIL }}
         USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
       continue-on-error: true
+    - name: Install Allure
+      if: always()
+      run: npm install -g allure-commandline
+
     - name: Generate Allure Report
       if: always()
-      run: npx allure generate allure-results -o allure-report --clean
+      run: |
+        if [ -d "allure-results" ] && [ "$(ls -A allure-results)" ]; then
+          npx allure generate allure-results -o allure-report --clean
+        else
+          echo "No allure-results found, skipping report generation"
+        fi
     - name: Upload Allure Report
       if: always()
       uses: actions/upload-artifact@v4
