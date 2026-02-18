@@ -1,0 +1,613 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\playwright.config.ts",
+    "rootDir": "C:/Users/Admin/Documents/urbuddi-playwright",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 6
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "dot",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "jsonReports/jsonReport.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "always"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/Admin/Documents/urbuddi-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "setup",
+        "name": "setup",
+        "testDir": "C:/Users/Admin/Documents/urbuddi-playwright",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.setup\\.ts/"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/Admin/Documents/urbuddi-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/Admin/Documents/urbuddi-playwright",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/Admin/Documents/urbuddi-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 6
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Users/Admin/Documents/urbuddi-playwright",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tests\\auth.setup.ts",
+      "file": "tests/auth.setup.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "authenticate",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "setup",
+              "projectName": "setup",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5601,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-02-09T13:56:12.715Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-auth.setup.ts-authenticate-setup\\test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-auth.setup.ts-authenticate-setup\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5cfdf7d9fac68b9178d2-87d4a96bb83ad83b361c",
+          "file": "tests/auth.setup.ts",
+          "line": 5,
+          "column": 6
+        }
+      ]
+    },
+    {
+      "title": "tests\\chandana.spec.ts",
+      "file": "tests/chandana.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "test url",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2054,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "yes its opened\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-02-09T13:56:19.574Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-chandana-test-url-chromium\\test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-chandana-test-url-chromium\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 11639,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "yes its opened\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-02-09T13:56:19.565Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-chandana-test-url-firefox\\test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-chandana-test-url-firefox\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "185644f628a29af4f551-d4554472d8054327f186",
+          "file": "tests/chandana.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tests\\employee.spec.ts",
+      "file": "tests/employee.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Create Employee with Dynamic Data",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 16647,
+                  "error": {
+                    "message": "Error: locator.waitFor: Target page, context or browser has been closed",
+                    "stack": "Error: locator.waitFor: Target page, context or browser has been closed\n    at EmployeePage.fillInput (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts:5:23)\n    at EmployeePage.enterMobile (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\employee.page.ts:65:20)\n    at EmployeePage.createEmployee (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\employee.page.ts:118:20)\n    at C:\\Users\\Admin\\Documents\\urbuddi-playwright\\tests\\employee.spec.ts:12:5",
+                    "location": {
+                      "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts",
+                      "column": 23,
+                      "line": 5
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mutils\\base.utils..ts:5\n\n\u001b[0m \u001b[90m 3 |\u001b[39m     \u001b[90m//reusable method like fill,click and dropdowns\u001b[39m\n \u001b[90m 4 |\u001b[39m      \u001b[36masync\u001b[39m fillInput(locator\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39m text\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m fieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mwaitFor({ state\u001b[33m:\u001b[39m \u001b[32m'visible'\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mfill(text)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m     }\n \u001b[90m 8 |\u001b[39m      \u001b[36masync\u001b[39m selectFromDropdown(locator\u001b[33m:\u001b[39m\u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39moption\u001b[33m:\u001b[39mstring\u001b[33m,\u001b[39mfieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39mstring){\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts",
+                        "column": 23,
+                        "line": 5
+                      },
+                      "message": "Error: locator.waitFor: Target page, context or browser has been closed\n\n\u001b[90m   at \u001b[39mutils\\base.utils..ts:5\n\n\u001b[0m \u001b[90m 3 |\u001b[39m     \u001b[90m//reusable method like fill,click and dropdowns\u001b[39m\n \u001b[90m 4 |\u001b[39m      \u001b[36masync\u001b[39m fillInput(locator\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39m text\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m fieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mwaitFor({ state\u001b[33m:\u001b[39m \u001b[32m'visible'\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mfill(text)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m     }\n \u001b[90m 8 |\u001b[39m      \u001b[36masync\u001b[39m selectFromDropdown(locator\u001b[33m:\u001b[39m\u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39moption\u001b[33m:\u001b[39mstring\u001b[33m,\u001b[39mfieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39mstring){\u001b[0m\n\u001b[2m    at EmployeePage.fillInput (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts:5:23)\u001b[22m\n\u001b[2m    at EmployeePage.enterMobile (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\employee.page.ts:65:20)\u001b[22m\n\u001b[2m    at EmployeePage.createEmployee (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\employee.page.ts:118:20)\u001b[22m\n\u001b[2m    at C:\\Users\\Admin\\Documents\\urbuddi-playwright\\tests\\employee.spec.ts:12:5\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-02-09T13:56:19.592Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-employee-Create-Employee-with-Dynamic-Data-chromium\\video.webm"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts",
+                    "column": 23,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 5,
+                  "status": "failed",
+                  "duration": 11854,
+                  "error": {
+                    "message": "Error: expect.toHaveURL: Target page, context or browser has been closed",
+                    "stack": "Error: expect.toHaveURL: Target page, context or browser has been closed\n    at DashboardPage.navigateForm (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\dashboard.page.ts:17:33)\n    at C:\\Users\\Admin\\Documents\\urbuddi-playwright\\tests\\employee.spec.ts:11:5",
+                    "location": {
+                      "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\dashboard.page.ts",
+                      "column": 33,
+                      "line": 17
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mpages\\dashboard.page.ts:17\n\n\u001b[0m \u001b[90m 15 |\u001b[39m         \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mclickElement (\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39memployeesSidebar\u001b[33m,\u001b[39m\u001b[32m'employee Side bar'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m         \u001b[90m//implenting the soft and hard assertions\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/.*dev\\.urbuddi\\.com\\/allemployees/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m         \u001b[36mconst\u001b[39m \u001b[33mEmployeedHeader\u001b[39m \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'Employees'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mlast()\u001b[33m;\u001b[39m\n \u001b[90m 19 |\u001b[39m         \u001b[36mawait\u001b[39m expect\u001b[33m.\u001b[39msoft(\u001b[33mEmployeedHeader\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m         \u001b[90m//clicking employee add button\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\dashboard.page.ts",
+                        "column": 33,
+                        "line": 17
+                      },
+                      "message": "Error: expect.toHaveURL: Target page, context or browser has been closed\n\n\u001b[90m   at \u001b[39mpages\\dashboard.page.ts:17\n\n\u001b[0m \u001b[90m 15 |\u001b[39m         \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mclickElement (\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39memployeesSidebar\u001b[33m,\u001b[39m\u001b[32m'employee Side bar'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m         \u001b[90m//implenting the soft and hard assertions\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/.*dev\\.urbuddi\\.com\\/allemployees/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m         \u001b[36mconst\u001b[39m \u001b[33mEmployeedHeader\u001b[39m \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'Employees'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mlast()\u001b[33m;\u001b[39m\n \u001b[90m 19 |\u001b[39m         \u001b[36mawait\u001b[39m expect\u001b[33m.\u001b[39msoft(\u001b[33mEmployeedHeader\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m         \u001b[90m//clicking employee add button\u001b[39m\u001b[0m\n\u001b[2m    at DashboardPage.navigateForm (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\dashboard.page.ts:17:33)\u001b[22m\n\u001b[2m    at C:\\Users\\Admin\\Documents\\urbuddi-playwright\\tests\\employee.spec.ts:11:5\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-02-09T13:56:19.651Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-employee-Create-Employee-with-Dynamic-Data-firefox\\video.webm"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\dashboard.page.ts",
+                    "column": 33,
+                    "line": 17
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b06e21e9a8873916f771-f343a67cbd6515a06c5a",
+          "file": "tests/employee.spec.ts",
+          "line": 6,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tests\\login.spec.ts",
+      "file": "tests/login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "login test urbuddi",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 17356,
+                  "error": {
+                    "message": "Error: locator.waitFor: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]') to be visible\u001b[22m\n",
+                    "stack": "Error: locator.waitFor: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]') to be visible\u001b[22m\n\n    at LoginPage.fillInput (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts:5:23)\n    at LoginPage.enterUsername (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\login.page.ts:30:18)\n    at LoginPage.login (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\login.page.ts:25:18)\n    at C:\\Users\\Admin\\Documents\\urbuddi-playwright\\tests\\login.spec.ts:6:21",
+                    "location": {
+                      "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts",
+                      "column": 23,
+                      "line": 5
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mutils\\base.utils..ts:5\n\n\u001b[0m \u001b[90m 3 |\u001b[39m     \u001b[90m//reusable method like fill,click and dropdowns\u001b[39m\n \u001b[90m 4 |\u001b[39m      \u001b[36masync\u001b[39m fillInput(locator\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39m text\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m fieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mwaitFor({ state\u001b[33m:\u001b[39m \u001b[32m'visible'\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mfill(text)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m     }\n \u001b[90m 8 |\u001b[39m      \u001b[36masync\u001b[39m selectFromDropdown(locator\u001b[33m:\u001b[39m\u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39moption\u001b[33m:\u001b[39mstring\u001b[33m,\u001b[39mfieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39mstring){\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts",
+                        "column": 23,
+                        "line": 5
+                      },
+                      "message": "Error: locator.waitFor: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\base.utils..ts:5\n\n\u001b[0m \u001b[90m 3 |\u001b[39m     \u001b[90m//reusable method like fill,click and dropdowns\u001b[39m\n \u001b[90m 4 |\u001b[39m      \u001b[36masync\u001b[39m fillInput(locator\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39m text\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m fieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mwaitFor({ state\u001b[33m:\u001b[39m \u001b[32m'visible'\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mfill(text)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m     }\n \u001b[90m 8 |\u001b[39m      \u001b[36masync\u001b[39m selectFromDropdown(locator\u001b[33m:\u001b[39m\u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39moption\u001b[33m:\u001b[39mstring\u001b[33m,\u001b[39mfieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39mstring){\u001b[0m\n\u001b[2m    at LoginPage.fillInput (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts:5:23)\u001b[22m\n\u001b[2m    at LoginPage.enterUsername (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\login.page.ts:30:18)\u001b[22m\n\u001b[2m    at LoginPage.login (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\login.page.ts:25:18)\u001b[22m\n\u001b[2m    at C:\\Users\\Admin\\Documents\\urbuddi-playwright\\tests\\login.spec.ts:6:21\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-02-09T13:56:19.605Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-login-login-test-urbuddi-chromium\\video.webm"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts",
+                    "column": 23,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8588,
+                  "error": {
+                    "message": "Error: locator.waitFor: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]') to be visible\u001b[22m\n",
+                    "stack": "Error: locator.waitFor: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]') to be visible\u001b[22m\n\n    at LoginPage.fillInput (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts:5:23)\n    at LoginPage.enterUsername (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\login.page.ts:30:18)\n    at LoginPage.login (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\login.page.ts:25:18)\n    at C:\\Users\\Admin\\Documents\\urbuddi-playwright\\tests\\login.spec.ts:6:21",
+                    "location": {
+                      "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts",
+                      "column": 23,
+                      "line": 5
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mutils\\base.utils..ts:5\n\n\u001b[0m \u001b[90m 3 |\u001b[39m     \u001b[90m//reusable method like fill,click and dropdowns\u001b[39m\n \u001b[90m 4 |\u001b[39m      \u001b[36masync\u001b[39m fillInput(locator\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39m text\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m fieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mwaitFor({ state\u001b[33m:\u001b[39m \u001b[32m'visible'\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mfill(text)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m     }\n \u001b[90m 8 |\u001b[39m      \u001b[36masync\u001b[39m selectFromDropdown(locator\u001b[33m:\u001b[39m\u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39moption\u001b[33m:\u001b[39mstring\u001b[33m,\u001b[39mfieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39mstring){\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts",
+                        "column": 23,
+                        "line": 5
+                      },
+                      "message": "Error: locator.waitFor: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"email\"]') to be visible\u001b[22m\n\n\n\u001b[90m   at \u001b[39mutils\\base.utils..ts:5\n\n\u001b[0m \u001b[90m 3 |\u001b[39m     \u001b[90m//reusable method like fill,click and dropdowns\u001b[39m\n \u001b[90m 4 |\u001b[39m      \u001b[36masync\u001b[39m fillInput(locator\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39m text\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m fieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mwaitFor({ state\u001b[33m:\u001b[39m \u001b[32m'visible'\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m         \u001b[36mawait\u001b[39m locator\u001b[33m.\u001b[39mfill(text)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m     }\n \u001b[90m 8 |\u001b[39m      \u001b[36masync\u001b[39m selectFromDropdown(locator\u001b[33m:\u001b[39m\u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39moption\u001b[33m:\u001b[39mstring\u001b[33m,\u001b[39mfieldName\u001b[33m?\u001b[39m\u001b[33m:\u001b[39mstring){\u001b[0m\n\u001b[2m    at LoginPage.fillInput (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts:5:23)\u001b[22m\n\u001b[2m    at LoginPage.enterUsername (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\login.page.ts:30:18)\u001b[22m\n\u001b[2m    at LoginPage.login (C:\\Users\\Admin\\Documents\\urbuddi-playwright\\pages\\login.page.ts:25:18)\u001b[22m\n\u001b[2m    at C:\\Users\\Admin\\Documents\\urbuddi-playwright\\tests\\login.spec.ts:6:21\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-02-09T13:56:22.964Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-login-login-test-urbuddi-firefox\\video.webm"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\utils\\base.utils..ts",
+                    "column": 23,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6b6dc33e290e5a0a43b1-25fbcbafed557f6516fa",
+          "file": "tests/login.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tests\\test.spec.ts",
+      "file": "tests/test.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "test 2",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1676,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "yes its opened\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-02-09T13:56:19.650Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-test-test-2-chromium\\test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-test-test-2-chromium\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3573,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "yes its opened\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-02-09T13:56:23.126Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-test-test-2-firefox\\test-finished-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\test-results\\tests-test-test-2-firefox\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e0e5c6321cedaeb39e74-59941db19f05b7cb3efd",
+          "file": "tests/test.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "Error: page.goto: Test ended.\nCall log:\n\u001b[2m  - navigating to \"https://nodejs.org/en\", waiting until \"load\"\u001b[22m\n\n\n\u001b[31mFailed worker ran 1 test:\u001b[39m\n[firefox] › tests\\test.spec.ts:2:5 › test 2",
+      "stack": "Error: page.goto: Test ended.\nCall log:\n\u001b[2m  - navigating to \"https://nodejs.org/en\", waiting until \"load\"\u001b[22m\n\n\n\u001b[31mFailed worker ran 1 test:\u001b[39m\n[firefox] › tests\\test.spec.ts:2:5 › test 2\n    at C:\\Users\\Admin\\Documents\\urbuddi-playwright\\tests\\test.spec.ts:3:10",
+      "location": {
+        "file": "C:\\Users\\Admin\\Documents\\urbuddi-playwright\\tests\\test.spec.ts",
+        "column": 10,
+        "line": 3
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtests\\test.spec.ts:3\n\n\u001b[0m \u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m {test} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 2 |\u001b[39m test(\u001b[32m'test 2'\u001b[39m\u001b[33m,\u001b[39m({page})\u001b[33m=>\u001b[39m{\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 |\u001b[39m     page\u001b[33m.\u001b[39mgoto(\u001b[32m\"https://nodejs.org/en\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 4 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m\"yes its opened\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 5 |\u001b[39m })\n \u001b[90m 6 |\u001b[39m\u001b[0m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-02-09T13:56:12.154Z",
+    "duration": 25261.523999999998,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}
