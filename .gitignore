@@ -1,6 +1,8 @@
 
 # Environment variables (IMPORTANT - protect sensitive data)
 .env*
+!.env.dev
+!.env
 
 # Playwright
 node_modules/

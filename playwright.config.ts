@@ -1,13 +1,19 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 import path from 'node:path';
+import fs from 'node:fs';
 
 // Load environment variables
 const ENV = process.env.ENV || 'dev';
-dotenv.config({
-  path: path.resolve(__dirname, `.env.${ENV}`),
-  override: true
-});
+const envFile = path.resolve(__dirname, `.env.${ENV}`);
+
+// Only load from file if it exists (works for both local dev and CI)
+if (fs.existsSync(envFile)) {
+  dotenv.config({
+    path: envFile,
+    override: true
+  });
+}
 
 console.log(`Current Environment: ${ENV}`);
 
