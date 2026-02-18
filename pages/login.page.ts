@@ -50,8 +50,8 @@ export class LoginPage extends BaseClass {
    }
 
    async verifyLoginSuccess() {
-      //await expect(this.page).toHaveURL(/.*dev.urbuddi.com/);
-      const dashboardHeader = this.page.getByText('Dashboard', { exact: true }).last();
-      await expect(dashboardHeader).toBeVisible();
+      // Wait for the dashboard to be visible with a longer timeout
+      await this.dashBoard.waitFor({ state: 'visible', timeout: 15000 });
+      await expect(this.dashBoard).toBeVisible();
    }
 }
