@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- "scripts": {
-  "pretest": "rimraf allure-results",
-  "test:dev": "set ENV=dev&& npx playwright test --workers=2",
-  "report:history": "if exist allure-report\\history (xcopy /s /i /y allure-report\\history allure-results\\history)",
-  "allure:dev": "npm run pretest && (npm run test:dev || exit 0) && npm run report:history && npx allure serve allure-results"
-},
+  "scripts": {
+    "pretest": "rimraf allure-results",
+    "test:dev": "set ENV=dev&& npx playwright test --workers=2",
+    "report:history": "if exist allure-report\\history (xcopy /s /i /y allure-report\\history allure-results\\history)",
+    "allure:dev": "npm run pretest && (npm run test:dev || exit 0) && npm run report:history && npx allure serve allure-results"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,6 +21,8 @@
     "rimraf": "^6.1.2"
   },
   "dependencies": {
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "exceljs": "^4.4.0",
+    "xlsx": "^0.18.5"
   }
 }

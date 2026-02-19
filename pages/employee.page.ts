@@ -138,7 +138,7 @@ export class EmployeePage extends BaseClass {
         await this.page.waitForLoadState('domcontentloaded');
         await this.page.waitForTimeout(2000);
         
-        console.log('✓ Navigated to employees list');
+        console.log(' Navigated to employees list');
         
         // Try to find the employee row by employee ID
         // Looking for the employee ID in the table
