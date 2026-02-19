@@ -9,12 +9,12 @@ test.describe('Static Data Driven Employee Creation', () => {
     // After each test, delete the employee if it was created successfully
     test.afterEach(async ({ employeePage }) => {
         if (employeeIdToDelete) {
-            console.log(`🧹 Running after hook - deleting employee: ${employeeIdToDelete}`);
+            console.log(`Running after hook - deleting employee: ${employeeIdToDelete}`);
             try {
                 await employeePage.deleteEmployee(employeeIdToDelete);
-                console.log(`✓ Successfully deleted employee: ${employeeIdToDelete}`);
+                console.log(`Successfully deleted employee: ${employeeIdToDelete}`);
             } catch (error) {
-                console.log(`⚠ Failed to delete employee: ${employeeIdToDelete}`, error);
+                console.log(`Failed to delete employee: ${employeeIdToDelete}`, error);
             } finally {
                 employeeIdToDelete = null; // Reset for next test
             }
@@ -48,10 +48,10 @@ test.describe('Static Data Driven Employee Creation', () => {
             
             if (hasError) {
                 await employeePage.page.keyboard.press('Escape');
-                console.log(`⚠ Employee already exists: ${userData.empId}`);
+                console.log(`Employee already exists: ${userData.empId}`);
                 // Don't delete since employee wasn't created
             } else {
-                console.log(`✓ Successfully processed static user: ${userData.empId}`);
+                console.log(`Successfully processed static user: ${userData.empId}`);
                 // Store the employee ID to delete in after hook
                 employeeIdToDelete = userData.empId;
             }

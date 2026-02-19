@@ -50,7 +50,7 @@ export const generateEmployeeData = (prefix: string) => {
         role: "Employee",
         gender: "Male",
         bloodGroup: "A+",
-        reporting: "chandana.vennam@optimworks.com", // Only available reporting lead
+        reporting: index % validReportingLeads.length + 1, // Using index-based selection (1-based because 0 is usually placeholder)
         degree: "Degree",
         dob: "1995-01-01",
         joinDate: "2026-01-22"

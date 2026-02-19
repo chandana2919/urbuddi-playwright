@@ -48,7 +48,7 @@ export class ReimbursementPage extends BaseClass {
     async navigateToReimbursement() {
         await this.clickElement(this.reimbursementSidebar, 'Reimbursement Sidebar');
         await this.page.waitForTimeout(1000);
-        console.log('✓ Navigated to Reimbursement section');
+        console.log('Navigated to Reimbursement section');
     }
 
     /**
@@ -57,7 +57,7 @@ export class ReimbursementPage extends BaseClass {
     async clickApplyExtraWork() {
         await this.clickElement(this.applyExtraWorkBtn, 'Apply Extra Work Button');
         await this.page.waitForTimeout(1000);
-        console.log('✓ Clicked Apply Extra Work button');
+        console.log('Clicked Apply Extra Work button');
     }
 
     /**
@@ -151,7 +151,7 @@ export class ReimbursementPage extends BaseClass {
         await this.verifyElementVisible(this.hoursInput, 'Hours Input');
         await this.verifyElementVisible(this.leadDropdown, 'Lead Dropdown');
         await this.verifyElementVisible(this.submitBtn, 'Submit Button');
-        console.log('✓ Reimbursement form verified');
+        console.log('Reimbursement form verified');
     }
 
     /**

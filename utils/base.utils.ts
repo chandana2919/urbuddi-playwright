@@ -10,22 +10,36 @@ export class BaseClass {
     async fillInput(locator: Locator, text: string, fieldName?: string) {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         await locator.fill(text);
-        console.log(`✓ Filled ${fieldName || 'field'} with: ${text}`);
+        console.log(`Filled ${fieldName || 'field'} with: ${text}`);
     }
 
     /**
-     * Select option from dropdown - tries both value and label
+     * Select option from dropdown - tries index, value, and label
      * @param locator - Dropdown locator
-     * @param option - Option value OR label to select
+     * @param option - Option value, label, OR index (as string) to select
      * @param fieldName - Optional field name for logging
      */
-    async selectFromDropdown(locator: Locator, option: string, fieldName?: string) {
+    async selectFromDropdown(locator: Locator, option: string | number, fieldName?: string) {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
+
+        // If option is a number or can be parsed as a number, try selecting by index
+        const index = typeof option === 'number' ? option : parseInt(option);
+        if (!isNaN(index) && index.toString() === option.toString()) {
+            try {
+                await locator.selectOption({ index });
+                console.log(`Selected ${fieldName || 'dropdown'} by index: ${index}`);
+                return;
+            } catch {
+                // Index selection failed, continue with value/label
+            }
+        }
         
+        const optionStr = option.toString();
+
         // Try selecting by value first
         try {
-            await locator.selectOption({ value: option });
-            console.log(`✓ Selected ${fieldName || 'dropdown'} by value: ${option}`);
+            await locator.selectOption({ value: optionStr });
+            console.log(`Selected ${fieldName || 'dropdown'} by value: ${optionStr}`);
             return;
         } catch {
             // Value not found, try label
@@ -33,18 +47,22 @@ export class BaseClass {
         
         // Try selecting by label text
         try {
-            await locator.selectOption({ label: option });
-            console.log(`✓ Selected ${fieldName || 'dropdown'} by label: ${option}`);
+            await locator.selectOption({ label: optionStr });
+            console.log(`Selected ${fieldName || 'dropdown'} by label: ${optionStr}`);
             return;
         } catch {
             // Label not found, try by text content
         }
         
         // Last resort: click and select from dropdown
-        await locator.click();
-        const optionLocator = locator.locator(`option:has-text("${option}")`).first();
-        await optionLocator.click();
-        console.log(`✓ Selected ${fieldName || 'dropdown'} by text: ${option}`);
+        try {
+            await locator.click();
+            const optionLocator = locator.locator(`option:has-text("${optionStr}")`).first();
+            await optionLocator.click();
+            console.log(`Selected ${fieldName || 'dropdown'} by text: ${optionStr}`);
+        } catch (error) {
+            console.log(`Failed to select ${fieldName || 'dropdown'} with option: ${option}`);
+        }
     }
 
     /**
@@ -55,7 +73,7 @@ export class BaseClass {
     async clickElement(locator: Locator, elementName?: string) {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         await locator.click();
-        console.log(`✓ Clicked ${elementName || 'element'}`);
+        console.log(`Clicked ${elementName || 'element'}`);
     }
 
     /**
@@ -64,7 +82,7 @@ export class BaseClass {
     async doubleClickElement(locator: Locator, elementName?: string) {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         await locator.dblclick();
-        console.log(`✓ Double clicked ${elementName || 'element'}`);
+        console.log(`Double clicked ${elementName || 'element'}`);
     }
 
     /**
@@ -84,7 +102,7 @@ export class BaseClass {
      */
     async waitForElementToDisappear(locator: Locator, timeout: number = 10000) {
         await locator.waitFor({ state: 'hidden', timeout });
-        console.log('✓ Element disappeared');
+        console.log('Element disappeared');
     }
 
     /**
@@ -110,7 +128,7 @@ export class BaseClass {
     async clearInput(locator: Locator, fieldName?: string) {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         await locator.clear();
-        console.log(`✓ Cleared ${fieldName || 'field'}`);
+        console.log(`Cleared ${fieldName || 'field'}`);
     }
 
     /**
@@ -119,7 +137,7 @@ export class BaseClass {
     async uploadFile(locator: Locator, filePath: string) {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         await locator.setInputFiles(filePath);
-        console.log(`✓ Uploaded file: ${filePath}`);
+        console.log(`Uploaded file: ${filePath}`);
     }
 
     /**
@@ -129,7 +147,7 @@ export class BaseClass {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         if (!(await locator.isChecked())) {
             await locator.check();
-            console.log(`✓ Checked ${fieldName || 'checkbox'}`);
+            console.log(`Checked ${fieldName || 'checkbox'}`);
         }
     }
 
@@ -140,7 +158,7 @@ export class BaseClass {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         if (await locator.isChecked()) {
             await locator.uncheck();
-            console.log(`✓ Unchecked ${fieldName || 'checkbox'}`);
+            console.log(`Unchecked ${fieldName || 'checkbox'}`);
         }
     }
 
@@ -150,7 +168,7 @@ export class BaseClass {
     async hoverElement(locator: Locator, elementName?: string) {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         await locator.hover();
-        console.log(`✓ Hovered over ${elementName || 'element'}`);
+        console.log(`Hovered over ${elementName || 'element'}`);
     }
 
     /**
@@ -159,7 +177,7 @@ export class BaseClass {
     async pressKey(locator: Locator, key: string) {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         await locator.press(key);
-        console.log(`✓ Pressed key: ${key}`);
+        console.log(`Pressed key: ${key}`);
     }
 
     /**
@@ -168,7 +186,7 @@ export class BaseClass {
     async waitAndClick(locator: Locator, elementName?: string, timeout: number = 10000) {
         await locator.waitFor({ state: 'visible', timeout });
         await locator.click();
-        console.log(`✓ Waited and clicked ${elementName || 'element'}`);
+        console.log(`Waited and clicked ${elementName || 'element'}`);
     }
 
     /**
@@ -176,7 +194,7 @@ export class BaseClass {
      */
     async scrollToElement(locator: Locator) {
         await locator.scrollIntoViewIfNeeded();
-        console.log('✓ Scrolled to element');
+        console.log('Scrolled to element');
     }
 
     /**
@@ -192,7 +210,7 @@ export class BaseClass {
     async selectDropdownByLabel(locator: Locator, label: string, fieldName?: string) {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         await locator.selectOption({ label });
-        console.log(`✓ Selected ${fieldName || 'dropdown'} by label: ${label}`);
+        console.log(`Selected ${fieldName || 'dropdown'} by label: ${label}`);
     }
 
     /**
@@ -201,7 +219,7 @@ export class BaseClass {
     async selectDropdownByIndex(locator: Locator, index: number, fieldName?: string) {
         await locator.waitFor({ state: 'visible', timeout: 10000 });
         await locator.selectOption({ index });
-        console.log(`✓ Selected ${fieldName || 'dropdown'} by index: ${index}`);
+        console.log(`Selected ${fieldName || 'dropdown'} by index: ${index}`);
     }
 
     /**
@@ -210,7 +228,7 @@ export class BaseClass {
     async waitForPageLoad(page: Page) {
         await page.waitForLoadState('load');
         await page.waitForLoadState('domcontentloaded');
-        console.log('✓ Page loaded');
+        console.log(' Page loaded');
     }
 
     /**
@@ -218,7 +236,7 @@ export class BaseClass {
      */
     async takeScreenshot(page: Page, name: string) {
         await page.screenshot({ path: `screenshots/${name}.png`, fullPage: true });
-        console.log(`✓ Screenshot saved: ${name}.png`);
+        console.log(` Screenshot saved: ${name}.png`);
     }
 
     /**
@@ -226,7 +244,7 @@ export class BaseClass {
      */
     async verifyElementText(locator: Locator, expectedText: string) {
         await expect(locator).toHaveText(expectedText);
-        console.log(`✓ Verified text: ${expectedText}`);
+        console.log(`Verified text: ${expectedText}`);
     }
 
     /**
@@ -234,7 +252,7 @@ export class BaseClass {
      */
     async verifyElementContainsText(locator: Locator, text: string) {
         await expect(locator).toContainText(text);
-        console.log(`✓ Verified element contains: ${text}`);
+        console.log(`Verified element contains: ${text}`);
     }
 
     /**
@@ -242,7 +260,7 @@ export class BaseClass {
      */
     async verifyElementVisible(locator: Locator, elementName?: string) {
         await expect(locator).toBeVisible();
-        console.log(`✓ Verified ${elementName || 'element'} is visible`);
+        console.log(`Verified ${elementName || 'element'} is visible`);
     }
 
     /**
@@ -250,7 +268,7 @@ export class BaseClass {
      */
     async verifyElementEnabled(locator: Locator, elementName?: string) {
         await expect(locator).toBeEnabled();
-        console.log(`✓ Verified ${elementName || 'element'} is enabled`);
+        console.log(`Verified ${elementName || 'element'} is enabled`);
     }
 
     /**
@@ -262,9 +280,9 @@ export class BaseClass {
         
         if (message) {
             await expect(toast).toContainText(message);
-            console.log(`✓ Toast message verified: ${message}`);
+            console.log(`Toast message verified: ${message}`);
         } else {
-            console.log('✓ Toast message appeared');
+            console.log('Toast message appeared');
         }
         
         return toast;
@@ -281,7 +299,7 @@ export class BaseClass {
             await expect(successToast).toContainText(message);
         }
         
-        console.log('✓ Success message verified');
+        console.log('Success message verified');
     }
 
     /**
@@ -295,6 +313,6 @@ export class BaseClass {
             await expect(errorToast).toContainText(message);
         }
         
-        console.log('✓ Error message verified');
+        console.log('Error message verified');
     }
 }

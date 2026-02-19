@@ -123,7 +123,6 @@ export class EmployeePage extends BaseClass {
         await this.selectReportingTo(data.reporting);
         await this.clickSubmit();
     }
-
     /**
      * Delete an employee by Employee ID
      * Navigates to employees list, finds the employee, and deletes them
@@ -147,11 +146,11 @@ export class EmployeePage extends BaseClass {
         // Check if employee exists
         const rowCount = await employeeRow.count();
         if (rowCount === 0) {
-            console.log(`⚠ Employee with ID ${employeeId} not found in the list`);
+            console.log(`Employee with ID ${employeeId} not found in the list`);
             return;
         }
         
-        console.log(`✓ Found employee row for ID: ${employeeId}`);
+        console.log(`Found employee row for ID: ${employeeId}`);
         
         // Look for delete button/action in the row
         // Common patterns: delete button, trash icon, action menu, three dots
@@ -205,7 +204,7 @@ export class EmployeePage extends BaseClass {
             await this.page.waitForTimeout(2000);
         }
         
-        console.log(`✓ Deleted employee with ID: ${employeeId}`);
+        console.log(`Deleted employee with ID: ${employeeId}`);
     }
 
     /**

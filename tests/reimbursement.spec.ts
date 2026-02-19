@@ -5,7 +5,6 @@ import {
 import { allure } from "allure-playwright";
 
 test.describe('Reimbursement - Apply Extra Work Tests', () => {
-
     /**
      * TEST CASE: Apply Reimbursementg
      */
@@ -43,9 +42,9 @@ test.describe('Reimbursement - Apply Extra Work Tests', () => {
             
             // Assert: Verify the modal is closed after clicking cancel
             await expect(reimbursementPage.applyReimbursementModal).not.toBeVisible({ timeout: 5000 });
-            console.log(`⚠ Extra work already exists: ${data.hours} hours on ${data.date} - Cancelled successfully`);
+            console.log(`Extra work already exists: ${data.hours} hours on ${data.date} - Cancelled successfully`);
         } else {
-            console.log(`✓ Reimbursement applied: ${data.hours} hours on ${data.date} with lead ${data.lead}`);
+            console.log(`Reimbursement applied: ${data.hours} hours on ${data.date} with lead ${data.lead}`);
         }
     });
 });

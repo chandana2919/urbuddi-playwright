@@ -10,7 +10,6 @@ type MyFixtures = {
     dashboardPage: DashboardPage;
     reimbursementPage: ReimbursementPage;
 };
-
 export const test = base.extend<MyFixtures>({
     loginPage: async ({ page }, use) => {
         const login = new LoginPage(page);
@@ -29,5 +28,4 @@ export const test = base.extend<MyFixtures>({
         await use(reimbursement);
     },
 });
-
 export { expect } from '@playwright/test';
