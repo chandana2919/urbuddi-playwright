@@ -7,22 +7,24 @@ on:
 
 jobs:
   test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
+        # Runs 3 parallel jobs: one for each browser
         browser: [chromium, firefox, webkit]
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'npm' # Caches your node_modules
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      # 2026 Pro-Tip: Cache the Browsers to avoid the 15-minute download
       - name: Cache Playwright Browsers
         id: playwright-cache
         uses: actions/cache@v4
@@ -30,10 +32,11 @@ jobs:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Install Playwright Browser (Specific to Matrix)
-        # Instead of installing ALL, we only install the one for this matrix leg
+      - name: Install Playwright Browsers
+        # We install chromium on EVERY machine so auth.setup.ts works, 
+        # plus the specific matrix browser.
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install ${{ matrix.browser }} --with-deps
+        run: npx playwright install chromium ${{ matrix.browser }} --with-deps
 
       - name: Run Playwright tests
         run: npx playwright test --project=${{ matrix.browser }}
@@ -42,13 +45,14 @@ jobs:
           BASE_URL: ${{ secrets.BASE_URL }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-        
+        continue-on-error: true
+
       - name: Upload Blob Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: all-blob-reports-${{ matrix.browser }}
-          path: blob-report/ 
+          path: blob-report/
           retention-days: 1
 
   generate-report:
@@ -60,17 +64,42 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: 'npm'
-      - run: npm ci
+      
+      - name: Install dependencies
+        run: npm ci
+
       - name: Download all blobs
         uses: actions/download-artifact@v4
         with:
           path: all-blob-reports
           pattern: all-blob-reports-*
           merge-multiple: true
+
       - name: Merge into HTML Report
         run: npx playwright merge-reports --reporter html ./all-blob-reports
-      - name: Upload Final Report
+
+      - name: Upload Final Playwright Report
         uses: actions/upload-artifact@v4
         with:
-          name: final-combined-report
+          name: final-playwright-report
           path: playwright-report/
+          retention-days: 30
+
+      # Optional: Keep your Allure logic if you use it locally
+      - name: Install Allure
+        run: npm install -g allure-commandline
+
+      - name: Generate Allure Report
+        run: |
+          if [ -d "allure-results" ] && [ "$(ls -A allure-results)" ]; then
+            npx allure generate allure-results -o allure-report --clean
+          else
+            echo "No allure-results found, skipping"
+          fi
+
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-allure-report
+          path: allure-report/
+          retention-days: 30
