@@ -12,7 +12,6 @@ test.describe('Excel Data Driven Employee Creation', () => {
         excelTestData = await readExcelData('employeeData.xlsx', 'Employees');
         console.log(`Loaded ${excelTestData.length} employees from Excel`);
     });
-
     // After each test, delete the employee if it was created successfully
     test.afterEach(async ({ employeePage }) => {
         if (employeeIdToDelete) {
@@ -27,7 +26,6 @@ test.describe('Excel Data Driven Employee Creation', () => {
             }
         }
     });
-
     // Use test.step to iterate through Excel data
     test('Create employees from Excel data @regression @excel', async ({ loginPage, employeePage, dashboardPage }, testInfo) => {
         test.slow();

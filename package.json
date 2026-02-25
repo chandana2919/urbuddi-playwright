@@ -14,10 +14,12 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@cucumber/cucumber": "^12.6.0",
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.9",
     "allure-commandline": "^2.36.0",
     "allure-playwright": "^3.4.5",
+    "playwright-bdd": "^8.4.2",
     "rimraf": "^6.1.2"
   },
   "dependencies": {
