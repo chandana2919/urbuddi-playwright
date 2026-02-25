@@ -14,6 +14,7 @@ jobs:
       matrix:
         # Runs 3 parallel jobs: one for each browser
         browser: [chromium, firefox, webkit]
+        shard: [1/3, 2/3, 3/3]
     steps:
       - uses: actions/checkout@v4
       
@@ -37,7 +38,7 @@ jobs:
         run: npx playwright install chromium ${{ matrix.browser }} --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --project=${{ matrix.browser }}
+        run: npx playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shard }}
         env:
           HEADLESS: true
           BASE_URL: ${{ secrets.BASE_URL }}
