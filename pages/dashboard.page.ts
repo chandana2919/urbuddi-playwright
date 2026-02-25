@@ -15,7 +15,7 @@ export class DashboardPage extends BaseClass {
         await this.clickElement (this.employeesSidebar,'employee Side bar');
         //implenting the soft and hard assertions
         await expect(this.page).toHaveURL(/.*dev\.urbuddi\.com\/allemployees/);
-        const EmployeedHeader = this.page.getByText('Employees', { exact: true }).last();
+        const EmployeedHeader = this.page.locator("//p[@class='sc-feUZmu qNlEl']");
         await expect.soft(EmployeedHeader).toBeVisible();
         //clicking employee add button
         await this.clickElement(this.addEmployeeBtn,'employee add');
