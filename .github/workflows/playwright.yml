@@ -4,6 +4,16 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select Environment to Run Tests'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - QA
 
 jobs:
   test:
@@ -12,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Runs 3 parallel jobs: one for each browser
+        # 3 Browsers x 3 Shards = 9 Parallel Workers
         browser: [chromium, firefox, webkit]
         shard: [1/3, 2/3, 3/3]
     steps:
@@ -41,16 +51,19 @@ jobs:
         run: npx playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shard }}
         env:
           HEADLESS: true
-          BASE_URL: ${{ secrets.BASE_URL }}
-          USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-        continue-on-error: true
+          # If 'dev' is selected, use the standard secrets. 
+          # If 'QA' is selected, use the _DEV secrets.
+          BASE_URL: ${{ github.event.inputs.environment == 'dev' && secrets.BASE_URL || secrets.BASE_URL_DEV }}
+          USER_EMAIL: ${{ github.event.inputs.environment == 'dev' && secrets.USER_EMAIL || secrets.USER_EMAIL_DEV }}
+          USER_PASSWORD: ${{ github.event.inputs.environment == 'dev' && secrets.USER_PASSWORD || secrets.USER_PASSWORD_DEV }}
+          CI: true
 
       - name: Upload Blob Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: all-blob-reports-${{ matrix.browser }}
+          # Unique name per job to prevent overwriting
+          name: all-blob-reports-${{ matrix.browser }}-${{ strategy.job-index }}
           path: blob-report/
           retention-days: 1
 
@@ -70,12 +83,11 @@ jobs:
       - name: Download all blobs
         uses: actions/download-artifact@v4
         with:
-          # pattern matches the name used in the 'test' job
           pattern: all-blob-reports-*
           merge-multiple: true
 
       - name: Merge into HTML Report
-        # Using '.' because merge-multiple: true puts all files in the current workspace
+        # Merges all shards into one final report
         run: npx playwright merge-reports --reporter html .
 
       - name: Upload Final Playwright Report
