@@ -38,8 +38,8 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['line'],
-    ['html', { open: 'never' }],
-    ['allure-playwright', { 
+    process.env.CI ? ['blob'] : ['html', { open: 'never' }],
+    ['allure-playwright', {
       outputFolder: 'allure-results',
       detail: true,
       suiteTitle: true
@@ -54,10 +54,10 @@ export default defineConfig({
     trace: 'on-first-retry',
     video: 'retain-on-failure',
     screenshot: 'only-on-failure',
-    
+
     /* Headless mode - toggle via environment variable or default to false for your "Testing Mode" */
     headless: process.env.HEADLESS === 'true' ? true : false,
-    
+
     /* Action and Navigation Timeouts */
     actionTimeout: 20000,
     navigationTimeout: 30000,
@@ -76,7 +76,7 @@ export default defineConfig({
     },
     {
       name: 'chromium',
-      use: { 
+      use: {
         ...devices['Desktop Chrome'],
         storageState: 'playwright/.auth/user.json',
       },
@@ -85,7 +85,7 @@ export default defineConfig({
 
     {
       name: 'firefox',
-      use: { 
+      use: {
         ...devices['Desktop Firefox'],
         storageState: 'playwright/.auth/user.json',
       },
@@ -94,7 +94,7 @@ export default defineConfig({
 
     {
       name: 'webkit',
-      use: { 
+      use: {
         ...devices['Desktop Safari'],
         storageState: 'playwright/.auth/user.json',
       },
@@ -104,4 +104,5 @@ export default defineConfig({
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   outputDir: 'test-results/',
+  
 });
